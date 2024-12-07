@@ -1,0 +1,35 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Bean for Employee -->
+    <bean id="employee" class="com.klef.jfsd.exam.Employee">
+        <constructor-arg value="32058"/> <!-- Updated Employee ID -->
+        <constructor-arg value="M Ram Thrinadh"/> <!-- Updated Name -->
+        <constructor-arg value="55000.0"/> <!-- Salary remains unchanged -->
+        <constructor-arg value="CSE"/> <!-- Updated Department -->
+        <constructor-arg>
+            <list>
+                <value>Java</value>
+                <value>Spring</value>
+                <value>Hibernate</value>
+            </list>
+        </constructor-arg>
+    </bean>
+
+    <!-- Bean for Instructor -->
+    <bean id="instructor" class="com.klef.jfsd.exam.Instructor">
+        <property name="instructorId" value="201"/> <!-- Keeping Instructor ID -->
+        <property name="name" value="N Murali Krishna"/> <!-- Updated Name -->
+        <property name="email" value="murali@gmail.com"/> <!-- Email remains unchanged -->
+        <property name="phoneNumber" value="1234567890"/> <!-- Phone Number remains unchanged -->
+    </bean>
+
+    <!-- Bean for Course with autowiring -->
+    <bean id="course" class="com.klef.jfsd.exam.Course" autowire="byName">
+        <property name="courseId" value="301"/> <!-- Keeping Course ID -->
+        <property name="courseName" value="JFSD"/> <!-- Updated Course Name -->
+        <property name="credits" value="4"/> <!-- Credits remain unchanged -->
+    </bean>
+</beans>
